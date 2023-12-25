@@ -1,17 +1,85 @@
 .loading.cover-content {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
 }
+
 .loading.cover-page {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
+
 .loading .ant-spin {
-  color: #3e79f7;
+    color: #3e79f7;
+}
+
+.area {
+    width: 1000px;
+    height: 500px;
+    outline: 1px solid #3EA4F7FF;
+    position: relative;
+    background-color: #fff;
+    user-select: none;
+    flex-shrink: 0;
+}
+
+.box {
+    height: 50px;
+    width: 50px;
+    background-color: white;
+    position: absolute;
+    user-select: none;
+}
+
+.scheduler {
+    display: flex;
+    justify-content: space-between;
+}
+
+.toolbar {
+    display: flex;
+    flex-direction: column;
+    color: #fff;
+    width: 150px;
+}
+
+.toolbarItem {
+    background-color: #3EA4F7FF;
+    margin-bottom: 20px;
+    color: #fff;
+    font-weight: 700;
+    border: none;
+    width: 100%;
+    height: 50px;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.toolbarItem:hover {
+    opacity: 0.7;
+}
+
+.toolbarItem_active {
+    border: 2px solid #2a3b4f;
+    opacity: 0.8;
+}
+
+.buttonAction {
+    margin-bottom: 20px;
+    border: none;
+    padding: 5px 10px;
+    color: #fff;
+    background-color: #2a3b4f;
+    border-radius: 10px;
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

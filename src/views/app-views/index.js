@@ -1,15 +1,16 @@
 import React, {lazy, Suspense} from "react";
 import {Switch, Route, Redirect} from "react-router-dom";
-import Loading from 'components/shared-components/Loading';
 import {APP_PREFIX_PATH} from 'configs/AppConfig'
+import {Spin} from 'antd'
 
 export const AppViews = () => {
     return (
-        <Suspense fallback={<Loading cover="content"/>}>
+        <Suspense fallback={<Spin size="large"/>}>
             <Switch>
-                <Route path={`${APP_PREFIX_PATH}/main`} component={lazy(() => import(`./main`))}/>
-                <Route path={`${APP_PREFIX_PATH}/system`} component={lazy(() => import(`./system`))}/>
-                <Redirect from={`${APP_PREFIX_PATH}`} to={`${APP_PREFIX_PATH}/home`}/>
+                <Route path={`${APP_PREFIX_PATH}/main/clients/client-list`}
+                       component={lazy(() => import(`./main/user-list`))}/>
+                <Route path={`${APP_PREFIX_PATH}/main/scheduler`} component={lazy(() => import(`./main/scheduler`))}/>
+                <Redirect from={`${APP_PREFIX_PATH}/main`} to={`${APP_PREFIX_PATH}/main`}/>
             </Switch>
         </Suspense>
     )

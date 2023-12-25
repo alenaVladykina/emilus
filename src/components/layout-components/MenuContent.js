@@ -37,7 +37,7 @@ const SideNavContent = (props) => {
 			onMobileNavToggle(false)
 		}
 	}
-    console.log(navigationConfig)
+
   return (
     <Menu
       theme={sideNavTheme === SIDE_NAV_LIGHT ? "light" : "dark"}

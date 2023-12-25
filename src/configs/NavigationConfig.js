@@ -10,7 +10,8 @@ import {
     MailOutlined,
     SettingOutlined,
     MobileOutlined,
-    FileOutlined
+    FileOutlined,
+    CarryOutOutlined
 } from '@ant-design/icons';
 
 
@@ -28,6 +29,14 @@ const dashBoardNavTree = [{
             path: `${APP_PREFIX_PATH}/main/dashboards`,
             title: 'Дашборд',
             icon: DashboardOutlined,
+            breadcrumb: false,
+            submenu: []
+        },
+        {
+            key: 'scheduler',
+            path: `${APP_PREFIX_PATH}/main/scheduler`,
+            title: 'Планировщик',
+            icon: CarryOutOutlined,
             breadcrumb: false,
             submenu: []
         },
