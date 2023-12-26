@@ -9,7 +9,7 @@ const Area = ({tables, refElement, handleMouseDown, handleMouseUp}) => {
             left: x + "px",
             width,
             height,
-            background: `url("/img/tables/${image}")`
+             background: `url(/emilus/img/tables/${image})`
         }
 
         return (
