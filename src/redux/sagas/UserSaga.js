@@ -3,7 +3,7 @@ import ExampleService from "../../services/UsersServise";
 import {
     FETCH_USERS,
     USERS_FETCH,
-    USER_DELETE,
+    USER_DELETE, IS_LOADING,
 } from '../constants/UserString';
 
 
@@ -18,10 +18,13 @@ export function* fetchUserSaga() {
 
 export function* deleteUserSaga(action) {
     const userId = action.payload
+    yield put({type: IS_LOADING, isLoad: true});
     try {
         yield put({type: "USERS_USER_DELETE", userId});
+        yield new Promise((resolve => { setTimeout(resolve, 500)}));
     } catch (e) {
-        console.log('Error', e.message)
+    } finally {
+       yield put({type: IS_LOADING, isLoad: false});
     }
 }
 

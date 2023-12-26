@@ -1,4 +1,4 @@
-import {USER_DELETE, FETCH_USERS} from "../constants/UserString";
+import {USER_DELETE, FETCH_USERS, IS_LOADING} from "../constants/UserString";
 
 
 export const userDeleteSagaAction = (userId) => {
@@ -14,5 +14,13 @@ export const fetchUserAction = () => {
         type: FETCH_USERS,
     }
 };
+
+export const isLoadingAction = (isLoad) => {
+    return {
+        type: IS_LOADING,
+        payload: isLoad
+    }
+};
+
 
 

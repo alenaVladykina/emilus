@@ -3,11 +3,11 @@ import {useEffect, useState} from "react";
 import UserView from "./UserView";
 import {Button, Card, Table, Tooltip} from "antd";
 import AvatarStatus from "../../../../components/shared-components/AvatarStatus";
-import {DeleteOutlined, EyeOutlined} from '@ant-design/icons'
+import {DeleteOutlined, EyeOutlined, LoadingOutlined} from '@ant-design/icons'
 import {fetchUserAction, userDeleteSagaAction} from "../../../../redux/actions/UsesActions";
 
 
-const UserList = ({users, fetchUserAction, userDeleteSagaAction}) => {
+const UserList = ({users, fetchUserAction, userDeleteSagaAction, isLoad}) => {
     const [userProfileVisible, setUserProfileVisible] = useState(false)
     const [selectedUser, setSelectedUser] = useState(null)
 
@@ -90,19 +90,26 @@ const UserList = ({users, fetchUserAction, userDeleteSagaAction}) => {
         }
     ];
 
+
     return (
+
         <Card bodyStyle={{'padding': '0px'}}>
+            {isLoad && <LoadingOutlined style={{fontSize: 35}} spin/>}
             <Table columns={tableColumns} dataSource={users} rowKey='id'/>
             <UserView data={selectedUser} visible={userProfileVisible} close={() => {
                 closeUserProfile()
             }}/>
+
         </Card>
     )
 }
 
 
 const mapStateToProps = ({users}) => {
-    return users;
+    return {
+        users: users.users,
+        isLoad: users.isLoad,
+    };
 }
 
 export default connect(mapStateToProps, {fetchUserAction, userDeleteSagaAction})(UserList);

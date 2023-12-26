@@ -1,4 +1,4 @@
-import {USERS_FETCH, USERS_USER_DELETE} from "../constants/UserString";
+import {IS_LOADING, USERS_FETCH, USERS_USER_DELETE} from "../constants/UserString";
 
 const user = {
     id: 1,
@@ -25,6 +25,7 @@ const user = {
 }
 const initState = {
     users: [user],
+    isLoad: false
 }
 
 export const usersReduser = (state = initState, action) => {
@@ -41,6 +42,21 @@ export const usersReduser = (state = initState, action) => {
                 users: state.users.filter(el => el.id !== action.userId)
             };
         }
+        case IS_LOADING: {
+            if (action.isLoad) {
+                return {
+                    ...state,
+                    isLoad: true,
+                };
+            }
+            if (!action.isLoad) {
+                return {
+                    ...state,
+                    isLoad: false
+                };
+            }
+        }
+
         default:
             return state;
     }

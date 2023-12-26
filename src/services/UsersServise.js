@@ -10,6 +10,7 @@ ExampleService.getPostRequest = () => {
             return res.data
         })
         .catch(err => err)
+
 }
 
 
